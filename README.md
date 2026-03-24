@@ -28,4 +28,4 @@ In this workshop, we will work through an introduction to [Snakemake](https://sn
 
 **This workshop was originally a part of [RezBaz 2020: Pick n Mix](https://resbaz.auckland.ac.nz/)** <br />
 
-<p align="center"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/01_introduction.html">Start the workshop!</a>
+<p align="center"><b><a href="https://jloveuoa.github.io/RezBaz2026_snakemake_workshop/">Start the workshop!</a>

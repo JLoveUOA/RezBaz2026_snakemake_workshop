@@ -284,7 +284,7 @@ localrule all:
 [Fri Nov 20 18:46:33 2020]
 Finished job 0.
 2 of 2 steps (100%) done
-Complete log: /home/jlove/RezBaz2020_snakemake_workshop/demo_workflow/workflow/.snakemake/log/2020-11-20T184627.461379.snakemake.log
+Complete log: /home/jlove/RezBaz2026_snakemake_workshop/demo_workflow/workflow/.snakemake/log/2020-11-20T184627.461379.snakemake.log
 ```
 
 It worked! Now in our results directory we have our output files from fastqc. Let's have a look:
@@ -1238,5 +1238,5 @@ snakemake --cores 32 --use-conda
 
 See [basic_demo_workflow](../basic_demo_workflow) for the final Snakemake workflow we've created up to this point
 
-<p align="left"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/02_setup.html">Previous page: 02 - Setup</a>
-<p align="right"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/04_leveling_up_your_workflow.html">Next page: 04 - Leveling up your workflow!</a>
+<p align="left"><b><a href="https://jloveuoa.github.io/RezBaz2026_snakemake_workshop/workshop_material/02_setup.html">Previous page: 02 - Setup</a>
+<p align="right"><b><a href="https://jloveuoa.github.io/RezBaz2026_snakemake_workshop/workshop_material/04_leveling_up_your_workflow.html">Next page: 04 - Leveling up your workflow!</a>
