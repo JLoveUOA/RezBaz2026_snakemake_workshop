@@ -1,11 +1,11 @@
 # Workflow languages – your foundation for accuracy and reproducibility in data analysis
-**Origonal workshop content developed by [Leah Kemp](https://github.com/leahkemp) - For ResBaz 2020 funded by [ESR](https://www.esr.cri.nz/) and [Genomics Aotearoa](https://www.genomics-aotearoa.org.nz/)**
+**Thanks to [Leah Kemp](https://github.com/leahkemp) For developing this workshop content - original workshop For ResBaz 2020 funded by [ESR](https://www.esr.cri.nz/) and [Genomics Aotearoa](https://www.genomics-aotearoa.org.nz/)**
 
 
-**Date:** TBA] <br />
-**Time:** TBA] <br />
+**Date:** TBA <br />
+**Time:** TBA <br />
 
-Are you working with big data? Do you need to pass your data through various software? If you’ve ever been in this situation (as any Bioinformatician has), you would know it can become very difficult to maintain reproducibility and accuracy; wait, have I updated this output file? The more manual steps we do, the more human errors are inevitably introduced into our analysis, hampering accuracy and reproducibility.
+Are you working with big data? Do you need to pass your data through various software? If you’ve ever been in this situation (as any bioinformatician has), you would know it can become very difficult to maintain reproducibility and accuracy; wait, have I updated this output file? The more manual steps we do, the more human errors are inevitably introduced into our analysis, hampering accuracy and reproducibility.
 
 Be lazy, the machine does it better.
 
@@ -26,6 +26,6 @@ In this workshop, we will work through an introduction to [Snakemake](https://sn
 - [Basic demo workflow](https://github.com/leahkemp/RezBaz2020_snakemake_workshop/tree/main/basic_demo_workflow)
 - [Leveled up demo workflow](https://github.com/leahkemp/RezBaz2020_snakemake_workshop/tree/main/leveled_up_demo_workflow)
 
-**This workshop was origonally a part of [RezBaz 2020: Pick n Mix](https://resbaz.auckland.ac.nz/)** <br />
+**This workshop was originally a part of [RezBaz 2020: Pick n Mix](https://resbaz.auckland.ac.nz/)** <br />
 
-<p align="center"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/01_introduction.html">Start the workshop!</a>
+<p align="center"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/01_introduction.html">Start the workshop!</a>

@@ -10,12 +10,6 @@
   - [Other workflow languages](#other-workflow-languages)
   - [This workshop](#this-workshop)
 
-## My background
-
-- Bioinformatician at the Institute of Environmental Science and Research (ESR)
-- Analyse human genomic data
-- MSc - population genetics
-
 ## Benefits of workflow languages
 
 - Reproducibility
@@ -46,7 +40,7 @@ See what other people think:
 Choose your favourite flavour of workflow language!
 
 - [Common Workflow Language (CWL)](https://www.commonwl.org/)
-- [Nextflow](https://www.nextflow.io/)
+- [Nextflow](https://www.nextflow.io/) - Excellent for larger scale pipelines! Check out Genomics Aotearoa's workshops later in the year.
 - [Workflow Description Language (WDL)](https://openwdl.org/)
 - [Guix Workflow Language (GWL)](https://workflows.guix.info/)
 
@@ -65,4 +59,4 @@ Throughout this workshop, I'll be indicating the code to remove and the code to 
 
 *However, the actual `+` and `-` symbols should not be included in your own code*
 
-<p align="center"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/02_setup.html">Next page: 02 - Setup</a>
+<p align="center"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/02_setup.html">Next page: 02 - Setup</a>

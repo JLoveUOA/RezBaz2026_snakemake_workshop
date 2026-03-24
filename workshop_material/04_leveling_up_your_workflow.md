@@ -72,7 +72,7 @@ rule trim_galore:
 rule bwa:
     input:
         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
-        refgenome = "/store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta"
+        refgenome = "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
     output: 
         "../results/mapped/{sample}.bam"
     log:
@@ -175,7 +175,7 @@ rule trim_galore:
 rule bwa:
     input:
         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
--       refgenome = "/store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta"
+-       refgenome = "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
 +       refgenome = config['REFGENOME']
     output: 
         "../results/mapped/{sample}.bam"
@@ -196,7 +196,7 @@ Specify the file path to the reference genome (.fasta) in our configuration file
 
 ```yaml
 # File path to the reference genome (.fasta)
-REFGENOME: "/store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta"
+REFGENOME: "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
 ```
 
 Run workflow again
@@ -213,9 +213,9 @@ snakemake --cores 32 --use-conda
 Didn't work? Error:
 
 ```bash
-KeyError in line 56 of /home/lkemp/RezBaz2020_snakemake_workshop/final_leveled_up_demo_workflow/workflow/Snakefile:
+KeyError in line 56 of /home/victor/RezBaz2020_snakemake_workshop/final_leveled_up_demo_workflow/workflow/Snakefile:
 'REFGENOME'
-  File "/home/lkemp/RezBaz2020_snakemake_workshop/final_leveled_up_demo_workflow/workflow/Snakefile", line 56, in <module>
+  File "/home/victor/RezBaz2020_snakemake_workshop/final_leveled_up_demo_workflow/workflow/Snakefile", line 56, in <module>
 ```
 
 Snakemake can't find our 'Key' - we haven't told Snakemake where our config file is. We can do this by passing the location of our config file to the `--configfile` flag
@@ -435,16 +435,16 @@ Job 6: Trimming using these parameter: --paired --cores. Writing logs to logs/tr
 Job 8: Trimming using these parameter: --paired --cores. Writing logs to logs/trim_galore/NA24631.log. Using 8 threads.
 
 [Tue Nov 24 16:05:59 2020]
-Job 9: Mapping sequences against /store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta
+Job 9: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
 
 [Tue Nov 24 16:06:00 2020]
 Job 1: Compiling a HTML report for quality control checks. Writing to ../results/multiqc_report.html.
 
 [Tue Nov 24 16:06:05 2020]
-Job 7: Mapping sequences against /store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta
+Job 7: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
 
 [Tue Nov 24 16:06:06 2020]
-Job 5: Mapping sequences against /store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta
+Job 5: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
 ```
 
 ## 4.4 Create temporary files
@@ -461,18 +461,18 @@ My output:
 
 ```bash
 total 12M
--rw-rw-r-- 1 lkemp lkemp 2.9K Nov 24 16:06 NA24631_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.0M Nov 24 16:06 NA24631_1_val_1.fq.gz
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:06 NA24631_2.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.2M Nov 24 16:06 NA24631_2_val_2.fq.gz
--rw-rw-r-- 1 lkemp lkemp 2.7K Nov 24 16:06 NA24694_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.1M Nov 24 16:06 NA24694_1_val_1.fq.gz
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:06 NA24694_2.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.2M Nov 24 16:06 NA24694_2_val_2.fq.gz
--rw-rw-r-- 1 lkemp lkemp 2.8K Nov 24 16:05 NA24695_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 1.8M Nov 24 16:05 NA24695_1_val_1.fq.gz
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:05 NA24695_2.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 1.8M Nov 24 16:05 NA24695_2_val_2.fq.gz
+-rw-rw-r-- 1 victor victor 2.9K Nov 24 16:06 NA24631_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.0M Nov 24 16:06 NA24631_1_val_1.fq.gz
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:06 NA24631_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.2M Nov 24 16:06 NA24631_2_val_2.fq.gz
+-rw-rw-r-- 1 victor victor 2.7K Nov 24 16:06 NA24694_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.1M Nov 24 16:06 NA24694_1_val_1.fq.gz
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:06 NA24694_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.2M Nov 24 16:06 NA24694_2_val_2.fq.gz
+-rw-rw-r-- 1 victor victor 2.8K Nov 24 16:05 NA24695_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 1.8M Nov 24 16:05 NA24695_1_val_1.fq.gz
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:05 NA24695_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 1.8M Nov 24 16:05 NA24695_2_val_2.fq.gz
 ```
 
 Let's mark all the trimmed fastq files as temporary in our Snakefile
@@ -578,12 +578,12 @@ My output:
 
 ```bash
 total 24K
--rw-rw-r-- 1 lkemp lkemp 2.9K Nov 24 16:18 NA24631_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:18 NA24631_2.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.7K Nov 24 16:18 NA24694_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:18 NA24694_2.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 2.8K Nov 24 16:18 NA24695_1.fastq.gz_trimming_report.txt
--rw-rw-r-- 1 lkemp lkemp 3.0K Nov 24 16:18 NA24695_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.9K Nov 24 16:18 NA24631_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:18 NA24631_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.7K Nov 24 16:18 NA24694_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:18 NA24694_2.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 2.8K Nov 24 16:18 NA24695_1.fastq.gz_trimming_report.txt
+-rw-rw-r-- 1 victor victor 3.0K Nov 24 16:18 NA24695_2.fastq.gz_trimming_report.txt
 ```
 
 *This become particularly important when our data become big data, since we don't want to keep any massive intermediate output files that we don't need. Otherwise this can start to clog up the memory on our computer. And it's tidy.*
@@ -675,5 +675,5 @@ snakemake --report ../results/report.html
 
 See [leveled_up_demo_workflow](../leveled_up_demo_workflow) for the final Snakemake workflow we've created up to this point
 
-<p align="left"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/03_create_a_basic_workflow.html">Previous page: 03 - Create a basic workflow</a>
-<p align="right"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/05_we_want_more.html">Next page: 05 - We want more</a>
+<p align="left"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/03_create_a_basic_workflow.html">Previous page: 03 - Create a basic workflow</a>
+<p align="right"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/05_we_want_more.html">Next page: 05 - We want more</a>

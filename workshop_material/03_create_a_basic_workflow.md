@@ -36,12 +36,12 @@ ls -lh ./data/
 Output:
 
 ```bash
--rw-rw-r-- 1 lkemp lkemp 2.1M Nov 18 14:56 NA24631_1.fastq.gz
--rw-rw-r-- 1 lkemp lkemp 2.3M Nov 18 14:56 NA24631_2.fastq.gz
--rw-rw-r-- 1 lkemp lkemp 2.1M Nov 18 14:56 NA24694_1.fastq.gz
--rw-rw-r-- 1 lkemp lkemp 2.3M Nov 18 14:56 NA24694_2.fastq.gz
--rw-rw-r-- 1 lkemp lkemp 1.8M Nov 18 14:56 NA24695_1.fastq.gz
--rw-rw-r-- 1 lkemp lkemp 1.9M Nov 18 14:56 NA24695_2.fastq.gz
+-rw-rw-r-- 1 jlove jlove 2.1M Nov 18 14:56 NA24631_1.fastq.gz
+-rw-rw-r-- 1 jlove jlove 2.3M Nov 18 14:56 NA24631_2.fastq.gz
+-rw-rw-r-- 1 jlove jlove 2.1M Nov 18 14:56 NA24694_1.fastq.gz
+-rw-rw-r-- 1 jlove jlove 2.3M Nov 18 14:56 NA24694_2.fastq.gz
+-rw-rw-r-- 1 jlove jlove 1.8M Nov 18 14:56 NA24695_1.fastq.gz
+-rw-rw-r-- 1 jlove jlove 1.9M Nov 18 14:56 NA24695_2.fastq.gz
 ```
 
 ## 3.2 File structure
@@ -94,10 +94,10 @@ ls -lh ./test
 My output:
 
 ```bash
--rw-rw-r-- 1 lkemp lkemp 250K Nov 18 15:53 NA24631_1_fastqc.html
--rw-rw-r-- 1 lkemp lkemp 327K Nov 18 15:53 NA24631_1_fastqc.zip
--rw-rw-r-- 1 lkemp lkemp 249K Nov 18 15:53 NA24631_2_fastqc.html
--rw-rw-r-- 1 lkemp lkemp 327K Nov 18 15:53 NA24631_2_fastqc.zip
+-rw-rw-r-- 1 jlove jlove 250K Nov 18 15:53 NA24631_1_fastqc.html
+-rw-rw-r-- 1 jlove jlove 327K Nov 18 15:53 NA24631_1_fastqc.zip
+-rw-rw-r-- 1 jlove jlove 249K Nov 18 15:53 NA24631_2_fastqc.html
+-rw-rw-r-- 1 jlove jlove 327K Nov 18 15:53 NA24631_2_fastqc.zip
 ```
 
 Let's wrap this up in a Snakemake workflow! Start with the basic structure in the Snakefile:
@@ -284,7 +284,7 @@ localrule all:
 [Fri Nov 20 18:46:33 2020]
 Finished job 0.
 2 of 2 steps (100%) done
-Complete log: /home/lkemp/RezBaz2020_snakemake_workshop/demo_workflow/workflow/.snakemake/log/2020-11-20T184627.461379.snakemake.log
+Complete log: /home/jlove/RezBaz2020_snakemake_workshop/demo_workflow/workflow/.snakemake/log/2020-11-20T184627.461379.snakemake.log
 ```
 
 It worked! Now in our results directory we have our output files from fastqc. Let's have a look:
@@ -297,10 +297,10 @@ Output
 
 ```bash
 total 2.4M
--rw-rw-r-- 1 lkemp lkemp 718K Nov 20 18:46 NA24631_1_fastqc.html
--rw-rw-r-- 1 lkemp lkemp 475K Nov 20 18:46 NA24631_1_fastqc.zip
--rw-rw-r-- 1 lkemp lkemp 726K Nov 20 18:46 NA24631_2_fastqc.html
--rw-rw-r-- 1 lkemp lkemp 479K Nov 20 18:46 NA24631_2_fastqc.zip
+-rw-rw-r-- 1 jlove jlove 718K Nov 20 18:46 NA24631_1_fastqc.html
+-rw-rw-r-- 1 jlove jlove 475K Nov 20 18:46 NA24631_1_fastqc.zip
+-rw-rw-r-- 1 jlove jlove 726K Nov 20 18:46 NA24631_2_fastqc.html
+-rw-rw-r-- 1 jlove jlove 479K Nov 20 18:46 NA24631_2_fastqc.zip
 ```
 
 What happens if we try a dryrun or full run now?
@@ -675,9 +675,9 @@ ls -lh ./logs/fastqc
 Output:
 
 ```bash
--rw-rw-r-- 1 lkemp lkemp 1.8K Nov 19 15:17 NA24631.log
--rw-rw-r-- 1 lkemp lkemp 1.8K Nov 19 15:17 NA24694.log
--rw-rw-r-- 1 lkemp lkemp 1.8K Nov 19 15:17 NA24695.log
+-rw-rw-r-- 1 jlove jlove 1.8K Nov 19 15:17 NA24631.log
+-rw-rw-r-- 1 jlove jlove 1.8K Nov 19 15:17 NA24694.log
+-rw-rw-r-- 1 jlove jlove 1.8K Nov 19 15:17 NA24695.log
 ```
 
 ## 3.7 Add more rules
@@ -760,7 +760,7 @@ Didn't work? Error:
 
 ```bash
 Building DAG of jobs...
-WildcardError in line 30 of /home/lkemp/RezBaz2020/demo_workflow/workflow/Snakefile:
+WildcardError in line 30 of /home/jlove/RezBaz2020/demo_workflow/workflow/Snakefile:
 Wildcards in input files cannot be determined from output files:
 'sample'
 ```
@@ -1048,7 +1048,7 @@ rule multiqc:
 + rule bwa:
 +     input:
 +         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
-+         refgenome = "/store/lkemp/publicData/b37/human_g1k_v37_decoy.fasta"
++         refgenome = "/store/jlove/publicData/b37/human_g1k_v37_decoy.fasta"
 +     output: 
 +         "../results/mapped/{sample}.bam"
 +     log:
@@ -1238,5 +1238,5 @@ snakemake --cores 32 --use-conda
 
 See [basic_demo_workflow](../basic_demo_workflow) for the final Snakemake workflow we've created up to this point
 
-<p align="left"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/02_setup.html">Previous page: 02 - Setup</a>
-<p align="right"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/04_leveling_up_your_workflow.html">Next page: 04 - Leveling up your workflow!</a>
+<p align="left"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/02_setup.html">Previous page: 02 - Setup</a>
+<p align="right"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/04_leveling_up_your_workflow.html">Next page: 04 - Leveling up your workflow!</a>

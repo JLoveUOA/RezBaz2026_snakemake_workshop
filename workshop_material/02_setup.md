@@ -55,7 +55,7 @@ conda activate demo_workflow_env
 Now we can see which conda environment we are in on the command line
 
 ```bash
-(demo_workflow_env) lkemp@Wintermute:~$
+(demo_workflow_env) jlove@perennial:~$
 ```
 
 *Snakemake has been installed within your `demo_workflow_env` environment, so you won't be able to see or use your Snakemake install unless you are within this environment*
@@ -73,5 +73,5 @@ cd RezBaz2020_snakemake_workshop
 
 See the [Git Guides](https://github.com/git-guides/git-clone) for information on cloning a repo
 
-<p align="left"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/01_introduction.html">Previous page: 01 - Introduction</a>
-<p align="right"><b><a href="https://leahkemp.github.io/RezBaz2020_snakemake_workshop/workshop_material/03_create_a_basic_workflow.html">Next page: 03 - Create a basic workflow</a>
+<p align="left"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/01_introduction.html">Previous page: 01 - Introduction</a>
+<p align="right"><b><a href="https://jloveuoa.github.io/RezBaz2020_snakemake_workshop/workshop_material/03_create_a_basic_workflow.html">Next page: 03 - Create a basic workflow</a>
