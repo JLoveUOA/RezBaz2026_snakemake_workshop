@@ -153,10 +153,10 @@ Let's test the workflow! First we need to be in the `workflow` directory, where 
 cd demo_workflow/workflow/
 ```
 
-Then let's carry out a dryrun of the workflow, where no actual analysis is undertaken (fastqc is *not* run) but the overall Snakemake structure is run/validated. This is a good way to check for errors in your Snakemake workflow before actually running your workflow.
+Then let's carry out a dry-run of the workflow, where no actual analysis is undertaken (fastqc is *not* run) but the overall Snakemake structure is run/validated. This is a good way to check for errors in your Snakemake workflow before actually running your workflow.
 
 ```bash
-snakemake --dryrun --cores 8
+snakemake --dry-run --cores 8
 ```
 
 Output:
@@ -187,7 +187,7 @@ Job counts:
         1       all
         1       fastqc
         2
-This was a dry-run (flag --dryrun). The order of jobs does not reflect the order of execution.
+This was a dry-run (flag --dry-run). The order of jobs does not reflect the order of execution.
 ```
 
 The output confirms that the workflow will run one sample (`count 1`) through `jobs fastqc`
@@ -204,7 +204,7 @@ Our diagram has a node for each job which are connected by edges representing de
 
 *Note. this diagram can be output to several other image formats such as svg or pdf*
 
-Let's do a full run of our workflow (by removing the `--dryrun` flag)
+Let's do a full run of our workflow (by removing the `--dry-run` flag)
 
 ```bash
 snakemake --cores 8
@@ -303,10 +303,10 @@ total 2.4M
 -rw-rw-r-- 1 jlove jlove 479K Nov 20 18:46 NA24631_2_fastqc.zip
 ```
 
-What happens if we try a dryrun or full run now?
+What happens if we try a dry-run or full run now?
 
 ```bash
-snakemake --dryrun --cores 8
+snakemake --dry-run --cores 8
 snakemake --cores 8
 ```
 
@@ -348,12 +348,11 @@ conda search fastqc
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - bioconda::fastqc=0.11.9
+  - bioconda::fastqc=0.12.1
 ```
 
-This will install [fastqc (version 0.11.9)](https://anaconda.org/bioconda/fastqc) from bioconda into a 'clean' conda environment separate from the rest of your computer
+This will install [fastqc (version 0.12.1)](https://anaconda.org/bioconda/fastqc) from bioconda into a 'clean' conda environment separate from the rest of your computer
 
 Have a look at [bioconda's list of packages](https://bioconda.github.io/conda-package_index.html) to see the VERY extensive list of open source (free) bioinformatics software that is available for download and use. Note that is only one of the conda package repositories that exist, also have a look at the [conda-forge](https://conda-forge.org/feedstocks/) and [main](https://anaconda.org/anaconda/repo) conda package repositories.
 
@@ -391,9 +390,9 @@ Run again, now telling Snakemake to use to use [Conda](https://docs.conda.io/en/
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun again
-- snakemake --dryrun --cores 8
-+ snakemake --dryrun --cores 8 --use-conda
+# Run dry-run again
+- snakemake --dry-run --cores 8
++ snakemake --dry-run --cores 8 --use-conda
 ```
 
 My output:
@@ -509,8 +508,8 @@ Run again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -604,11 +603,11 @@ Run workflow again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run again
+snakemake --dry-run --cores 8 --use-conda
 ```
 
-See how it now runs each sample over all three of our samples in the output of the dryrun:
+See how it now runs each sample over all three of our samples in the output of the dry-run:
 
 ```bash
 Building DAG of jobs...
@@ -695,9 +694,8 @@ conda search multiqc
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - bioconda::multiqc=1.9
+  - bioconda::multiqc=1.27
 ```
 
 - Connect the outputs of fastqc to the inputs of multiqc
@@ -751,8 +749,8 @@ Run workflow again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -826,8 +824,8 @@ Run again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -881,8 +879,8 @@ Run workflow again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -950,8 +948,8 @@ Run again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -963,7 +961,7 @@ Job counts:
         1       all
         3       fastqc
         4
-This was a dry-run (flag --dryrun). The order of jobs does not reflect the order of execution.
+This was a dry-run (flag --dry-run). The order of jobs does not reflect the order of execution.
 ```
 
 Our multiqc rule won't be run/evaluated
@@ -1070,9 +1068,8 @@ touch ./envs/trim_galore.yaml
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
-  - bioconda::trim-galore=0.6.5
+  - bioconda::trim-galore=0.6.10
 
 # Create file
 touch ./envs/bwa.yaml
@@ -1081,10 +1078,8 @@ touch ./envs/bwa.yaml
 channels:
   - bioconda
   - conda-forge
-  - defaults
 dependencies:
   - bioconda::bwa=0.7.17
-  - bioconda::gatk4=4.1.6.0
 ```
 
 Visualise workflow
@@ -1119,8 +1114,8 @@ Run the workflow again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 8 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 8 --use-conda
 snakemake --cores 8 --use-conda
 ```
 
@@ -1135,7 +1130,7 @@ Run again allowing Snakemake to use more cores overall `--cores 32` rather than 
 rm -r ../results/*
 
 # Run dryrun/run again
-snakemake --dryrun --cores 32 --use-conda
+snakemake --dry-run --cores 32 --use-conda
 snakemake --cores 32 --use-conda
 ```
 
@@ -1192,10 +1187,10 @@ Create a filegraph with:
 snakemake --filegraph | dot -Tpng > filegraph.png
 ```
 
-Run a dryrun of your snakemake workflow with:
+Run a dry-run of your snakemake workflow with:
 
 ```bash
-snakemake --dryrun --cores 8
+snakemake --dry-run --cores 8
 ```
 
 Run your snakemake workflow with:
@@ -1204,10 +1199,10 @@ Run your snakemake workflow with:
 snakemake --cores 8
 ```
 
-Run a dryrun of your snakemake workflow (using conda to install your software) with:
+Run a dry-run of your snakemake workflow (using conda to install your software) with:
 
 ```bash
-snakemake --dryrun --cores 8 --use-conda
+snakemake --dry-run --cores 8 --use-conda
 ```
 
 Run your snakemake workflow (using conda to install your software) with:

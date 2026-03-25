@@ -205,8 +205,8 @@ Run workflow again
 # Remove output of last run
 rm -r ../results/*
 
-# Run dryrun/run again
-snakemake --dryrun --cores 32 --use-conda
+# Run dry-run/run again
+snakemake --dry-run --cores 32 --use-conda
 snakemake --cores 32 --use-conda
 ```
 
@@ -225,9 +225,9 @@ Snakemake can't find our 'Key' - we haven't told Snakemake where our config file
 rm -r ../results/*
 
 # Run dryrun/run again
-- snakemake --dryrun --cores 32 --use-conda
+- snakemake --dry-run --cores 32 --use-conda
 - snakemake --cores 32 --use-conda
-+ snakemake --dryrun --cores 32 --use-conda --configfile ../config/config.yaml
++ snakemake --dry-run --cores 32 --use-conda --configfile ../config/config.yaml
 + snakemake --cores 32 --use-conda --configfile ../config/config.yaml
 ```
 
@@ -311,13 +311,15 @@ Then we don't need to specify where the configuration file is on the command lin
 rm -r ../results/*
 
 # Run dryrun/run again
-+ snakemake --dryrun --cores 32 --use-conda
++ snakemake --dry-run --cores 32 --use-conda
 + snakemake --cores 32 --use-conda
-- snakemake --dryrun --cores 32 --use-conda --configfile ../config/config.yaml
+- snakemake --dry-run --cores 32 --use-conda --configfile ../config/config.yaml
 - snakemake --cores 32 --use-conda --configfile ../config/config.yaml
 ```
 
 ## 4.3 Leave messages for the user
+
+> **Note:** The `message:` directive was deprecated in Snakemake 8 and will emit a deprecation warning. It is kept here as historical context — consider using `log:` files or `--printshellcmds` instead for runtime visibility.
 
 We can provide the user of our workflow more information on what is happening at each stage/rule of our workflow via the `message:` directive. We are able to call many variables such as:
 
@@ -409,7 +411,7 @@ rule bwa:
 rm -r ../results/*
 
 # Run dryrun/run again
-snakemake --dryrun --cores 32 --use-conda
+snakemake --dry-run --cores 32 --use-conda
 snakemake --cores 32 --use-conda
 ```
 
@@ -562,7 +564,7 @@ rule bwa:
 rm -r ../results/*
 
 # Run dryrun/run again
-snakemake --dryrun --cores 32 --use-conda
+snakemake --dry-run --cores 32 --use-conda
 snakemake --cores 32 --use-conda
 ```
 
@@ -652,7 +654,7 @@ Alternatively, define your config file in the Snakefile:
 configfile: "../config/config.yaml"
 ```
 
-Use the `message` directive to provide information to the user on what is happening real time, for example:
+Use the `message` directive to provide information to the user on what is happening real time, for example (**deprecated in Snakemake 8**):
 
 ```bash
 message:

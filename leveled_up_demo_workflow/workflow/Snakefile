@@ -23,8 +23,6 @@ rule fastqc:
     threads: 8
     conda:
         "envs/fastqc.yaml"
-    message:
-        "Undertaking quality control checks {input}"
     shell:
         "fastqc {input.R1} {input.R2} -o ../results/fastqc/ -t {threads} &> {log}"
   
@@ -37,8 +35,6 @@ rule multiqc:
         "logs/multiqc/multiqc.log"
     conda:
         "envs/multiqc.yaml"
-    message:
-        "Compiling a HTML report for quality control checks. Writing to {output}."
     shell:
         "multiqc {input} -o ../results/ &> {log}"
 
@@ -51,8 +47,6 @@ rule trim_galore:
         "--paired"
     log:
         "logs/trim_galore/{sample}.log"
-    message:
-       "Trimming using these parameter: {params}. Writing logs to {log}. Using {threads} threads."
     conda:
         "./envs/trim_galore.yaml"
     threads: 8
@@ -67,8 +61,6 @@ rule bwa:
         "../results/mapped/{sample}.bam"
     log:
         "logs/bwa_mem/{sample}.log"
-    message:
-        "Mapping sequences against {input.refgenome}"
     conda:
         "./envs/bwa.yaml"
     threads: 8

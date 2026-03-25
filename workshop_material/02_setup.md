@@ -88,7 +88,7 @@ To clone this repo (and use the example data I have provided), you will require 
 Once git is installed, clone this repo with the following:
 
 ```bash
-git clone https://github.com/leahkemp/RezBaz2026_snakemake_workshop.git
+git clone https://github.com/jloveuoa/RezBaz2026_snakemake_workshop.git
 cd RezBaz2026_snakemake_workshop
 ```
 
