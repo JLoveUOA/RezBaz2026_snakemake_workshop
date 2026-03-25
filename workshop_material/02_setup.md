@@ -4,40 +4,61 @@
 
 - [02 - Setup](#02---setup)
 - [Table of contents](#table-of-contents)
-  - [Install Miniconda](#install-miniconda)
+  - [Install Miniforge](#install-miniforge)
     - [Check your OS](#check-your-os)
-    - [Installing miniconda](#installing-miniconda)
+    - [Installing Miniforge](#installing-miniforge)
   - [Create a conda environment](#create-a-conda-environment)
   - [Clone this repo](#clone-this-repo)
 
-## Install Miniconda
+## Install Miniforge
 
-For this workshop, will analyse our data using various software. However, the only software we will need to manually install is [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+For this workshop, we will analyse our data using various software. However, the only software we will need to manually install is [Miniforge](https://conda-forge.org/miniforge/).
+
+> **Why Miniforge and not Miniconda?**
+> In 2023, Anaconda changed their Terms of Service so that using their package repository (the `defaults` channel) requires a paid license for organisations with 200 or more employees — which includes most universities. Miniforge is a community-maintained installer that uses the [conda-forge](https://conda-forge.org/) channel by default and is completely free for everyone. It installs the same `conda` command you are used to.
 
 ### Check your OS
 
-If you already use Linux or MacOS X, great! Ignore this paragraph!. If you use Windows, setup a Linux virtual machine (VM) with Vagrant (see instructions on how to do this [here](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#setup-a-linux-vm-with-vagrant-under-windows)).
+If you already use Linux or macOS, great — skip to the next section!
 
-### Installing miniconda
+If you use **Windows**, the easiest path is now [Windows Subsystem for Linux 2 (WSL2)](https://learn.microsoft.com/en-us/windows/wsl/install). WSL2 gives you a full Linux environment running natively inside Windows without needing a virtual machine.
 
-Information on how to install Miniconda can be found [on their website](https://docs.conda.io/en/latest/miniconda.html). Snakemake also provides information on installing Miniconda in [their documentation](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniconda-3)
+To install WSL2, open PowerShell as Administrator and run:
 
-Once miniconda is installed, [set up your channels](https://bioconda.github.io/user/install.html#set-up-channels) (channels are locations where packages/software are can be installed from)
+```powershell
+wsl --install
+```
+
+This installs Ubuntu by default. Once it is set up, open the **Ubuntu** app from the Start menu and follow the rest of this guide inside that terminal.
+
+### Installing Miniforge
+
+Download and run the Miniforge installer for your platform from the [Miniforge releases page](https://conda-forge.org/miniforge/).
+
+On **Linux / macOS / WSL2** you can install with a single command:
 
 ```bash
-conda config --add channels defaults
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+```
+
+Follow the prompts and allow the installer to initialise conda in your shell. Restart your terminal afterwards.
+
+Miniforge pre-configures `conda-forge` as the default channel, so no extra channel setup is needed. Just add the `bioconda` channel:
+
+```bash
 conda config --add channels bioconda
-conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 ## Create a conda environment
 
-With Miniconda, we can create a conda environment which acts as a space contained from the rest of the machine in which our workflow will automatically install all the necessary software it uses, supporting the portability and reproducibility of your workflow.
+With Miniforge, we can create a conda environment which acts as a space contained from the rest of the machine in which our workflow will automatically install all the necessary software it uses, supporting the portability and reproducibility of your workflow.
 
-Create a conda environment (called `demo_workflow_env`) that has python and Snakemake installed (and all it's dependant software)
+Create a conda environment (called `demo_workflow_env`) that has Python and Snakemake installed (and all its dependent software)
 
 ```bash
-conda create -n demo_workflow_env python=3.7.6 snakemake=5.28.0
+conda create -n demo_workflow_env python=3.12 snakemake
 ```
 
 Respond yes to the following prompt to install the necessary software in the new conda environment:
