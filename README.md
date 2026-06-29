@@ -2,8 +2,8 @@
 **Thanks to [Leah Kemp](https://github.com/leahkemp) For developing this workshop content - original workshop For ResBaz 2020 funded by [ESR](https://www.esr.cri.nz/) and [Genomics Aotearoa](https://www.genomics-aotearoa.org.nz/)**
 
 
-**Date:** TBA <br />
-**Time:** TBA <br />
+**Date:** Wednesday 1 July <br />
+**Time:** 10 AM - 12 PM <br />
 
 Are you working with big data? Do you need to pass your data through various software? If you’ve ever been in this situation (as any bioinformatician has), you would know it can become very difficult to maintain reproducibility and accuracy; wait, have I updated this output file? The more manual steps we do, the more human errors are inevitably introduced into our analysis, hampering accuracy and reproducibility.
 
