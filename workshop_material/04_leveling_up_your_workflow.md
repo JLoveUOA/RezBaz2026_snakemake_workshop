@@ -72,7 +72,7 @@ rule trim_galore:
 rule bwa:
     input:
         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
-        refgenome = "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
+        refgenome = "../../data/chr22.fasta.gz"
     output: 
         "../results/mapped/{sample}.bam"
     log:
@@ -175,7 +175,7 @@ rule trim_galore:
 rule bwa:
     input:
         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
--       refgenome = "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
+-       refgenome = "../../data/chr22.fasta.gz"
 +       refgenome = config['REFGENOME']
     output: 
         "../results/mapped/{sample}.bam"
@@ -196,7 +196,7 @@ Specify the file path to the reference genome (.fasta) in our configuration file
 
 ```yaml
 # File path to the reference genome (.fasta)
-REFGENOME: "/store/victor/publicData/b37/human_g1k_v37_decoy.fasta"
+REFGENOME: "../../data/chr22.fasta.gz"
 ```
 
 Run workflow again
@@ -437,16 +437,16 @@ Job 6: Trimming using these parameter: --paired --cores. Writing logs to logs/tr
 Job 8: Trimming using these parameter: --paired --cores. Writing logs to logs/trim_galore/NA24631.log. Using 8 threads.
 
 [Tue Nov 24 16:05:59 2020]
-Job 9: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
+Job 9: Mapping sequences against ../../data/chr22.fasta.gz
 
 [Tue Nov 24 16:06:00 2020]
 Job 1: Compiling a HTML report for quality control checks. Writing to ../results/multiqc_report.html.
 
 [Tue Nov 24 16:06:05 2020]
-Job 7: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
+Job 7: Mapping sequences against ../../data/chr22.fasta.gz
 
 [Tue Nov 24 16:06:06 2020]
-Job 5: Mapping sequences against /store/victor/publicData/b37/human_g1k_v37_decoy.fasta
+Job 5: Mapping sequences against ../../data/chr22.fasta.gz
 ```
 
 ## 4.4 Create temporary files

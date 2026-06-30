@@ -1046,7 +1046,7 @@ rule multiqc:
 + rule bwa:
 +     input:
 +         fastq = ["../results/trimmed/{sample}_1_val_1.fq.gz", "../results/trimmed/{sample}_2_val_2.fq.gz"],
-+         refgenome = "/store/jlove/publicData/b37/human_g1k_v37_decoy.fasta"
++         refgenome = "../../data/chr22.fasta.gz"
 +     output: 
 +         "../results/mapped/{sample}.bam"
 +     log:
@@ -1081,6 +1081,20 @@ channels:
 dependencies:
   - bioconda::bwa=0.7.17
 ```
+
+We are mapping against chromosome 22 of the human reference genome (`../../data/chr22.fasta.gz`), which is included in this repo's `data` directory. We use a single small chromosome rather than the full ~3 GB human genome so the mapping step runs in seconds (most of our reads come from elsewhere in the genome and won't map to chromosome 22, but that's fine for this demo).
+
+Before `bwa mem` can use the reference, it needs to be indexed **once**. Activate the bwa conda environment and build the index (this creates the `.amb`, `.ann`, `.bwt`, `.pac` and `.sa` index files next to the reference):
+
+```bash
+# Create and activate the bwa environment, then index the reference
+conda env create -f ./envs/bwa.yaml -n bwa
+conda activate bwa
+bwa index ../../data/chr22.fasta.gz
+conda deactivate
+```
+
+*(Tip: you could also automate this as its own `bwa_index` rule in the workflow, but a one-off manual index keeps this demo simple.)*
 
 Visualise workflow
 
