@@ -488,9 +488,9 @@ Different ways to write log files:
 
 |  Syntax  | standard output in terminal | standard error in terminal | standard output in file | standard error in file |
 |----------|-----------------------------|----------------------------|-------------------------|------------------------|
-|   `>`    |  :x:                        | :heavy_check_mark:         | :heavy_check_mark:      | :x:                    |
-|   `2>`   |  :heavy_check_mark:         | :x:                        | :x:                     | :heavy_check_mark:     |
-|   `&>`   |  :x:                        | :x:                        | :heavy_check_mark:      | :heavy_check_mark:     |
+|   `>`    |  ❌                        | ✅         | ✅      | ❌                    |
+|   `2>`   |  ✅         | ❌                        | ❌                     | ✅     |
+|   `&>`   |  ❌                        | ❌                        | ✅      | ✅     |
 
 (Table adapted from [here](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file))
 
