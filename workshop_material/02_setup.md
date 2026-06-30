@@ -51,6 +51,19 @@ conda config --add channels bioconda
 conda config --set channel_priority strict
 ```
 
+💡 **Already have Miniconda or Anaconda installed?**
+If you already have a working conda installation and want to skip installing Miniforge, you can just clean up your existing channels to ensure you aren't using the commercial `defaults` channel.
+
+1. **Check your current channels:**
+   ```bash
+   conda config --show-sources
+   ```
+2. **Remove the `defaults` channel** (if you see it listed under any file):
+   ```bash
+   conda config --remove channels defaults
+   conda config --system --remove channels defaults
+   ```
+
 ## Create a conda environment
 
 With Miniforge, we can create a conda environment which acts as a space contained from the rest of the machine in which our workflow will automatically install all the necessary software it uses, supporting the portability and reproducibility of your workflow.
